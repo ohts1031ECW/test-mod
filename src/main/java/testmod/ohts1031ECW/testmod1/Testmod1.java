@@ -1,6 +1,7 @@
 package testmod.ohts1031ECW.testmod1;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -12,6 +13,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
+import testmod.ohts1031ECW.testmod1.item.ModItems;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(Testmod1.MOD_ID)
@@ -24,6 +26,9 @@ public class Testmod1 {
 
     public Testmod1() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        //register items
+        ModItems.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
@@ -42,7 +47,9 @@ public class Testmod1 {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.TESTITEM);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
