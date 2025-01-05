@@ -13,6 +13,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
+import testmod.ohts1031ECW.testmod1.item.ModCreativeTab;
 import testmod.ohts1031ECW.testmod1.item.ModItems;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -26,6 +27,8 @@ public class Testmod1 {
 
     public Testmod1() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ModCreativeTab.register(modEventBus);
 
         //register items
         ModItems.register(modEventBus);
