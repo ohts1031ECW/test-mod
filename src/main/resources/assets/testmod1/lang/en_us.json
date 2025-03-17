@@ -1,4 +1,6 @@
 {
   "item.testmod1.testitem": "#1-TestItem",
-  "item.testmod1.testitemv2": "#2-TestItem"
+  "item.testmod1.testitemv2": "#2-TestItem",
+
+  "creativetab.test_tab1": "TestCreativeTab1"
 }

@@ -14,15 +14,18 @@ public class ModCreativeTab {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Testmod1.MOD_ID);
 
     public static final RegistryObject<CreativeModeTab> TEST_MOD_TAB = CREATIVE_MODE_TABS.register(
-            "Test_Moc_Tab",
-            () -> CreativeModeTab.builder()
+            "test_mod_tab",
+            () ->
+                CreativeModeTab.builder()
                         .icon(() -> new ItemStack(ModItems.TESTITEM.get()))
-                        .title(Component.translatable("creativetab.test_tab"))
+                        .title(Component.translatable("creativetab.test_tab1"))
                         .displayItems((itemDisplayParameters, output) -> {
                             output.accept(ModItems.TESTITEM.get());
                             output.accept(ModItems.TESTITEMv2.get());
                         })
                         .build()
+
+
             );
 
     public static void register(IEventBus eventBus){
